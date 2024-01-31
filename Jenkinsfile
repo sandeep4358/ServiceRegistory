@@ -21,10 +21,10 @@ pipeline{
                     echo 'Docker build'
                     script{
                          withDockerRegistry(credentialsId: 'a77c722e-a2ea-45c3-b4e3-6100d91bcb67') {
-                                                 sh 'docker image build -t sandeep022/discovery-server:${BUILD_NUMBER} .'
+                                                 sh 'docker image build -t sandeep022/ServiceDiscovery:${BUILD_NUMBER} .'
                                               //for a time being as it push to docker hub take time I am commenting that
 
-                                              //  sh 'docker push sandeep022/discovery-server:${BUILD_NUMBER}'
+                                              //  sh 'docker push sandeep022/ServiceDiscovery:${BUILD_NUMBER}'
                                              }
                     }
                 }
@@ -35,9 +35,9 @@ pipeline{
                     echo 'Image Run'
                     script{
                                                  // some block
-												 //sh 'docker container rm -f discovery-server'
+												 //sh 'docker container rm -f ServiceDiscovery'
 
-                                                 sh 'docker run -dit --name discovery-server{BUILD_NUMBER} -p 8761:8761 sandeep022/discovery-server:${BUILD_NUMBER}'
+                                                 sh 'docker run -dit --name ServiceDiscovery${BUILD_NUMBER} -p 8761:8761 sandeep022/ServiceDiscovery:${BUILD_NUMBER}'
 
                     }
                 }
