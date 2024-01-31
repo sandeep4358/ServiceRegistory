@@ -37,7 +37,7 @@ pipeline{
                                                  // some block
 												 //sh 'docker container rm -f servicediscovery'
 
-                                                 sh 'docker run -dit --name servicediscovery${BUILD_NUMBER} -p 8761:8761 sandeep022/servicediscovery:${BUILD_NUMBER}'
+                                                 sh 'docker run --network=ska -dit --name servicediscovery${BUILD_NUMBER} -p 8761:8761 sandeep022/servicediscovery:${BUILD_NUMBER}'
 
                     }
                 }

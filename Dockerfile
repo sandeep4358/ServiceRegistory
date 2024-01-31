@@ -1,14 +1,14 @@
-FROM tomcat:10.1.16-jdk17-temurin-jammy
+# Use the AdoptOpenJDK 17 JRE image
+FROM adoptopenjdk:17-jre-hotspot
 
-MAINTAINER "SANDEEP KUMAR"
+# Set the working directory inside the container
+WORKDIR /app
 
-#delte all the file inside the webapps folder(in the latest tomcat we are already deleted but just in case)
-#RUN     rm -rf /user/local/tomcat/webapps/*
+# Copy the JAR file into the container at /app
+COPY target/ServiceDiscovery.jar /app/ServiceDiscovery.jar
 
-#now copy your project in that folder
-COPY ./target/ServiceDiscovery.war /usr/local/tomcat/webapps/ServiceDiscovery.war
-
-
+# Specify the port the application will run on
 EXPOSE 8761
 
-CMD ["catalina.sh", "run"]
+# Command to run your application
+CMD ["java", "-jar", "ServiceDiscovery.jar"]
