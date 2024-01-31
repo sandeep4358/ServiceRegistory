@@ -9,6 +9,6 @@ MAINTAINER "SANDEEP KUMAR"
 COPY ./target/ServiceDiscovery.war /usr/local/tomcat/webapps/ServiceDiscovery.war
 
 
-EXPOSE 8080
+EXPOSE 8761
 
 CMD ["catalina.sh", "run"]
