@@ -24,24 +24,24 @@ pipeline{
                                                  sh 'docker image build -t sandeep022/servicediscovery:${BUILD_NUMBER} .'
                                               //for a time being as it push to docker hub take time I am commenting that
 
-                                                sh 'docker push sandeep022/servicediscovery:${BUILD_NUMBER}'
+                                              //  sh 'docker push sandeep022/servicediscovery:${BUILD_NUMBER}'
                                              }
                     }
                 }
 		}
 
-		stage('Docker Image Run '){
+		/*stage('Docker Image Run '){
                 steps{
                     echo 'Image Run'
                     script{
                                                  // some block
 												 //sh 'docker container rm -f servicediscovery'
-
-                                                 sh 'docker run --network=ska -dit --name servicediscovery${BUILD_NUMBER} -p 8761:8761 sandeep022/servicediscovery:${BUILD_NUMBER}'
+        //Now I will use the docker compose for running the docker container
+                                                 //sh 'docker run --network=ska -dit --name servicediscovery${BUILD_NUMBER} -p 8761:8761 sandeep022/servicediscovery:${BUILD_NUMBER}'
 
                     }
                 }
-		}
+		}*/
 
 }
 
