@@ -30,18 +30,18 @@ pipeline{
                 }
 		}
 
-		stage('Docker Image Run '){
+		/*stage('Docker Image Run '){
                 steps{
                     echo 'Image Run'
                     script{
                                                  // some block
 												 //sh 'docker container rm -f servicediscovery'
-
-                                                 sh 'docker run -dit --name servicediscovery${BUILD_NUMBER} -p 8761:8761 sandeep022/servicediscovery:${BUILD_NUMBER}'
+        //Now I will use the docker compose for running the docker container
+                                                 //sh 'docker run --network=ska -dit --name servicediscovery${BUILD_NUMBER} -p 8761:8761 sandeep022/servicediscovery:${BUILD_NUMBER}'
 
                     }
                 }
-		}
+		}*/
 
 }
 
